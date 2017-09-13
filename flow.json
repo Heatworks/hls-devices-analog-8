@@ -4,7 +4,26 @@
         "type": "tab",
         "label": "Flow 1"
     },
-    {"id":"d88144d2.de1c88","type":"mqtt-broker","z":"","broker":"hls-local-server.local","port":"1883","clientid":"analog8/unknown","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"willTopic":"","willQos":"0","willRetain":"false","willPayload":"","birthTopic":"","birthQos":"0","birthRetain":"false","birthPayload":""},
+    {
+        "id":"d88144d2.de1c88",
+        "type":"mqtt-broker",
+        "z":"",
+        "broker":"hls-local-server.local",
+        "port":"1883",
+        "clientid":"analog8/unknown",
+        "usetls":false,
+        "compatmode":true,
+        "keepalive":"60",
+        "cleansession":true,
+        "willTopic":"",
+        "willQos":"0",
+        "willRetain":"false",
+        "willPayload":"",
+        "birthTopic":"",
+        "birthQos":"0",
+        "birthRetain":"false",
+        "birthPayload":""
+    },
     {
         "id": "c01e9b34.249758",
         "type": "function",
