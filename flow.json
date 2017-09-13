@@ -1,0 +1,21 @@
+[
+    {
+        "id": "2d1ebe9e.2857b2",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "c01e9b34.249758",
+        "type": "function",
+        "z": "2d1ebe9e.2857b2",
+        "name": "Conversion Sample",
+        "func": "// Parse out the output code from the ADC\nvar parts = msg.payload.split(\",\")\nparts.splice(1,1)\nvar outputCode = parts[1];\n\n// Convert ADC value to mA\nvar ADC12BitRange = 4096;\nvar ADCVoltage = 5000;\nvar ADCResistorValue = 220;\nvar mV = outputCode * (ADCVoltage / ADC12BitRange )\nvar mA = (mV / ADCResistorValue);\n\n// Convert mA to desired range.\nvar mARange = [4.0, 20.0];\nvar range = [0.0, 120.0]\nvar m = (range[1] - range[0]) / (mARange[1] - mARange[0]);\nvar b = range[0] - m*mARange[0];\nvar y = m*mA + b;\n\n// Round value to 2 decimal places.\nparts[1] = Math.round(y*100)/100;\n\n// Join timestamp back with converted value.\nmsg.payload = parts.join(\",\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    }
+]
