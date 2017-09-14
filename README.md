@@ -111,6 +111,4 @@ sudo chown pi:pi /var/log/node-red.log
 
 ## Future
 
-- Don't use default password. Consider using raspberry pi's default which leaves a reminder to change it each time one signs in.
 - Include password and host name changes in the prompt setup script.
-- Run setup through UART.
