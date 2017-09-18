@@ -23,9 +23,9 @@ sudo npm install -g node-red
 
 ### Node-Red
 
-Edit `~/.node-red/settings.js` and change the `flowFile` option to `flows_default.json`.
+Begin by running node red, this generates the flow and settings files.
 
-Begin by running node red, this generates the flow files. Copy the new flows from this file.
+Edit `~/.node-red/settings.js` and change the `flowFile` option to `flows_default.json`.
 
 ### Add Code for Maxim MAX1270
 
@@ -76,7 +76,7 @@ return msg;
 
 ### Add this Repo
 
-Clone this repo and setup environment variables in `/home/pi/profile`.
+Clone this repo and setup environment variables in `/home/pi/.profile`.
 
 ```
 export NODE_RED_CRED_FILE=/home/pi/.node-red/flows_default_cred.json
