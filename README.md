@@ -42,12 +42,10 @@ Edit `~/.node-red/settings.js` and change the `flowFile` option to `flows_defaul
 
 Enable SPI using `sudo raspi-config`.
 
-### Add Code for Maxim MAX1270
+### Add Wiring Pi for SPI
 
 ```bash
-cd ~/.node-red
-sudo npm install @heatworks/node-red-contrib-maxim-max1270
-
+cd ~/
 git clone git://git.drogon.net/wiringPi
 cd ~/wiringPi
 ./build
