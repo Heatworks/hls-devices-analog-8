@@ -5,7 +5,7 @@
 #include <math.h>
 #include <unistd.h>
 
-#define CLK_DELAY 1000
+#define CLK_DELAY 500
 
 int xfer(int tx, int CLK_PIN, int MISO_PIN, int MOSI_PIN, int CS_PIN) {
     unsigned char t;  
@@ -80,10 +80,7 @@ int main (int argc, char *argv[])
     pinMode (SPI_CS, OUTPUT) ;
 
     // Print results.
-    while(1) {
-        printf("%.3f,%i,%i\n", getTimestamp(), CHANNEL, readADCChannel(CHANNEL,SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS)); 
-        usleep(1000000);
-    }
-   
+    printf("%.3f,%i,%i\n", getTimestamp(), CHANNEL, readADCChannel(CHANNEL,SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS)); 
+    
     return 0 ;
 }
