@@ -1,11 +1,14 @@
 {
     "spi": {
-        "CLK": 22,
-        "MISO": 27,
-        "MOSI": 26,
-        "CS": 19
+        "CLK": 3,
+        "MISO": 2,
+        "MOSI": 25,
+        "CS": 24
     },
-    "channels": {
-        
-    }
+    "channels": [
+        {
+            "channel": 5,
+            "suffix": "Current"
+        }
+    ]
 }
