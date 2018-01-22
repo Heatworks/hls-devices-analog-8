@@ -38,21 +38,20 @@ Begin by running node red, this generates the flow and settings files.
 
 Edit `~/.node-red/settings.js` and change the `flowFile` option to `flows_default.json`.
 
+### Enable SPI
+
+Enable SPI using `sudo raspi-config`.
+
 ### Add Code for Maxim MAX1270
 
 ```bash
 cd ~/.node-red
 sudo npm install @heatworks/node-red-contrib-maxim-max1270
 
-cd ~/
-sudo apt-get install python-dev
-mkdir python-spi
-cd python-spi
-wget https://raw.github.com/doceme/py-spidev/master/setup.py
-wget https://raw.github.com/doceme/py-spidev/master/spidev_module.c
-wget https://raw.github.com/doceme/py-spidev/master/README.md
-wget https://raw.github.com/doceme/py-spidev/master/CHANGELOG.md
-sudo python setup.py install
+git clone git://git.drogon.net/wiringPi
+cd ~/wiringPi
+./build
+
 ```
 
 Optional add some sample code into the node red flow.
@@ -87,7 +86,7 @@ return msg;
 
 ### Add this Repo
 
-Clone this repo and setup environment variables in `/home/pi/.profile`.
+Clone this repo into `/home/pi` and setup environment variables in `/home/pi/.profile`.
 
 ```
 export NODE_RED_CRED_FILE=/home/pi/.node-red/flows_default_cred.json
