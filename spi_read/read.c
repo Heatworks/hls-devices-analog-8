@@ -32,7 +32,7 @@ int main (int argc, char *argv[])
     int SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS, CHANNEL;
     if (argc < 6) {
         printf("Incomplete number of arguments.");
-        exit();
+        exit(EXIT_FAILURE);
     }
     SPI_CLK = atoi(argv[1]);
     SPI_MISO = atoi(argv[2]);
