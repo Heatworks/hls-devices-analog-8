@@ -5,9 +5,9 @@
 #include <math.h>
 #include <unistd.h>
 
-#define CLK_DELAY 500
+#define CLK_DELAY 150
 
-int xfer(int tx, int CLK_PIN, int MISO_PIN, int MOSI_PIN, int CS_PIN) {
+int xfer(int tx, int terminate_cs, int CLK_PIN, int MISO_PIN, int MOSI_PIN, int CS_PIN) {
     unsigned char t;
     unsigned char shiftin=0; 
     digitalWrite (CLK_PIN, 0);
@@ -28,7 +28,7 @@ int xfer(int tx, int CLK_PIN, int MISO_PIN, int MOSI_PIN, int CS_PIN) {
         usleep(CLK_DELAY);
     } 
     digitalWrite (CLK_PIN, 0);
-    digitalWrite (CS_PIN, 1);
+    digitalWrite (CS_PIN, terminate_cs);
     return shiftin;
 }
 
@@ -47,10 +47,10 @@ double getTimestamp() {
 }
 
 int readADCChannel(int channel, int CLK_PIN, int MISO_PIN, int MOSI_PIN, int CS_PIN) {
-    int response = xfer(0b10000001 + (channel << 4), CLK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
-    int responseA = xfer(0b0, CLK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
-    int responseB = xfer(0b0, CLK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
-    int responseC = xfer(0b0, CLK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
+    int response = xfer(0b10000001 + (channel << 4), 0, CLK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
+    int responseA = xfer(0b0, 0, CLK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
+    int responseB = xfer(0b0, 0, CLK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
+    int responseC = xfer(0b0, 1, CLK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
 
     int left = responseC >> 7;
     int middle = responseB << 1;
