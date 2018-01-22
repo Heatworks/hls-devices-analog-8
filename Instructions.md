@@ -10,9 +10,11 @@ Setup instructions for the HSL Analog8 Board.
 5. Reboot to see changes. (`sudo reboot`)
 6. Get latest setup script `cd /home/pi/hls-devices-analog-8/ && git pull`.
 7. Run setup script `cd /home/pi/hls-devices-analog-8/ && bash setup.sh` and answer prompts.
-8. Reboot to see changes. (`sudo reboot`)
+8. Edit `config.json` file to capture channel data at specific data rates.
+9. Reboot to see changes. (`sudo reboot`)
+10. Process data in node red by going to `{hostname}.local:1880` and creating conversion function nodes and MQTT nodes.
 
 Model: Analog8
-Rev: 2.0
+Rev: 3.0
 Unit: ______________
 Date: ______________
