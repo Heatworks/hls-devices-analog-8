@@ -8,7 +8,7 @@
 #define CLK_DELAY 500
 
 int xfer(int tx, int CLK_PIN, int MISO_PIN, int MOSI_PIN, int CS_PIN) {
-    unsigned char t;  
+    unsigned char t;
     unsigned char shiftin=0; 
     digitalWrite (CLK_PIN, 0);
     digitalWrite (CS_PIN, 0);
@@ -80,7 +80,7 @@ int main (int argc, char *argv[])
     pinMode (SPI_CS, OUTPUT) ;
 
     // Print results.
-    printf("%.3f,%i,%i\n", getTimestamp(), CHANNEL, readADCChannel(CHANNEL,SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS)); 
+    printf("%.3f,%i,%i", getTimestamp(), CHANNEL, readADCChannel(CHANNEL,SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS)); 
     
     return 0 ;
 }

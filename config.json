@@ -8,7 +8,13 @@
     "channels": [
         {
             "channel": 5,
-            "suffix": "Current"
+            "suffix": "Pressure",
+            "datarate": 1000
+        },
+        {
+            "channel": 4,
+            "suffix": "Current",
+            "datarate": 250
         }
     ]
 }
