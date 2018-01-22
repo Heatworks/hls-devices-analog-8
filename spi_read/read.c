@@ -66,14 +66,19 @@ int main (int argc, char *argv[])
 
     int response = xfer(0b10000001 + (CHANNEL << 4), SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
     printf("%i -> %i\n",0b10000001 + (CHANNEL << 4), response);
-    response = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
-    printf("%i -> %i\n",0b0, response);
-    response = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
-    printf("%i -> %i\n",0b0, response);
-    response = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
-    printf("%i -> %i\n",0b0, response);
+    int responseA = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
+    printf("%i -> %i\n",0b0, responseA);
+    int responseB = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
+    printf("%i -> %i\n",0b0, responseB);
+    int responseC = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
+    printf("%i -> %i\n",0b0, responseC);
+
+    int left = responseC >> 7;
+    int middle = responseB << 1;
+    int right = responseA << 9;
+    int final = left + middle + right;
 
     // Print results.
-    printf("%i.%03ld,%i,%f\n", (int)s, ms, CHANNEL, value); 
+    printf("%i.%03ld,%i,%i\n", (int)s, ms, CHANNEL, final); 
     return 0 ;
 }
