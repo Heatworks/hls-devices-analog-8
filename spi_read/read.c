@@ -23,19 +23,16 @@ int xfer(int tx, int CLK_PIN, int MISO_PIN, int MOSI_PIN, int CS_PIN) {
             shiftin |= 1; 
         
     } 
-    return shiftin; 
+    return shiftin;
 }
 
-unsigned char SPI_Write_Byte(unsigned char num) 
-{ 
-  
-} 
 
 int main (int argc, char *argv[])
 {
     int SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS, CHANNEL;
     if (argc < 6) {
         printf("Incomplete number of arguments.");
+        exit();
     }
     SPI_CLK = atoi(argv[1]);
     SPI_MISO = atoi(argv[2]);
@@ -66,13 +63,13 @@ int main (int argc, char *argv[])
     float value = 5.0;
 
     int response = xfer(0b10000001 + (CHANNEL << 4), SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
-    printf("%i -> %i",0b10000001 + (CHANNEL << 4), response);
+    printf("%i -> %i\n",0b10000001 + (CHANNEL << 4), response);
     response = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
-    printf("%i -> %i",0b0, response);
+    printf("%i -> %i\n",0b0, response);
     response = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
-    printf("%i -> %i",0b0, response);
+    printf("%i -> %i\n",0b0, response);
     response = xfer(0b0, SPI_CLK, SPI_MISO, SPI_MOSI, SPI_CS);
-    printf("%i -> %i",0b0, response);
+    printf("%i -> %i\n",0b0, response);
 
     // Print results.
     printf("%i.%03ld,%i,%f\n", (int)s, ms, CHANNEL, value); 
