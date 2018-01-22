@@ -6,15 +6,5 @@
         "CS": 24
     },
     "channels": [
-        {
-            "channel": 5,
-            "suffix": "Pressure",
-            "datarate": 1000
-        },
-        {
-            "channel": 4,
-            "suffix": "Current",
-            "datarate": 250
-        }
     ]
 }
